@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-navy text-white antialiased;
+}
+
+body.dark {
+  @apply bg-almost-black;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  @apply bg-custom-gradient bg-clip-text text-transparent;
+}
+
+/* Gradient underline utility for links */
+.hover-gradient-underline {
+  @apply relative inline-block py-1;
+}
+
+.hover-gradient-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  @apply bg-custom-gradient transition-all duration-300 ease-out;
+}
+
+.hover-gradient-underline:hover::after {
+  width: 100%;
+}
+
+/* Custom scrollbar (optional, but enhances the dark theme) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-navy dark:bg-almost-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-mid rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gradient-start;
+}
